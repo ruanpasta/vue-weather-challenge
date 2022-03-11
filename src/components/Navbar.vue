@@ -5,7 +5,11 @@ import ImageLogo from "@/components/images/imageLogo.vue";
 <template>
   <nav>
     <ul class="nav">
-      <li class="nav__item"><ImageLogo width="176px" height="26px" /></li>
+      <li class="nav__item">
+        <figure>
+          <ImageLogo width="176px" height="26px" />
+        </figure>
+      </li>
     </ul>
   </nav>
 </template>
@@ -14,7 +18,6 @@ import ImageLogo from "@/components/images/imageLogo.vue";
 .nav {
   background-color: $white;
   margin: 0;
-  padding: 10px;
 
   display: flex;
   flex-direction: row;
