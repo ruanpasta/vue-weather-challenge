@@ -1,3 +1,18 @@
+<script setup>
+const props = defineProps({
+  height: {
+    type: String,
+    default: "16px",
+  },
+  width: {
+    type: String,
+    default: "108px",
+  },
+});
+
+defineExpose(props);
+</script>
+
 <template>
   <svg
     version="1.2"
@@ -11,8 +26,8 @@
     xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
     x="0px"
     y="0px"
-    width="108px"
-    height="16px"
+    :width="width"
+    :height="height"
     viewBox="0 0 108 16"
     xml:space="preserve"
   >

@@ -1,1 +1,6 @@
 @import '@/assets/styles/_variables.scss';
+
+body {
+  margin: 0;
+  background-color: $app-background;
+}
