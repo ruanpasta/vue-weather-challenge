@@ -3,4 +3,7 @@
 ### Configurações
 - Projeto gerado Vue3
 - Configurações gerais. Remoção e inclusão de arquivos.
-- Criado o componente Navbar
+
+### Novas funcionalidades
+- Criado o componente Navbar e configurado componente imageLogo
+- Relizado testes unitários dos componentes Navbar e imageLogo
