@@ -4,7 +4,7 @@ const props = defineProps({
     type: Array,
   },
   lastUpdate: {
-    type: Date,
+    type: String,
   },
 });
 
@@ -17,14 +17,21 @@ defineExpose(props);
       v-if="informations && informations.length > 0"
       class="informations__items"
     >
-      <div class="informations__items__item">
-        <div class="informations__items__item__description">Humidity</div>
-        <div class="informations__items__item__value">75%</div>
-      </div>
-      <div class="informations__items__item">
-        <div class="informations__items__item__description">Pressure</div>
+      <div
+        class="informations__items__item"
+        v-for="(info, index) in informations"
+        :key="index"
+      >
+        <div class="informations__items__item__description">
+          {{ info.description }}
+        </div>
         <div class="informations__items__item__value">
-          892<span class="informations__items__item__value__type">hPa</span>
+          {{ info.value }}
+          <span
+            class="informations__items__item__value__type"
+            v-if="info.valueType"
+            >{{ info.valueType }}
+          </span>
         </div>
       </div>
     </div>
@@ -35,13 +42,11 @@ defineExpose(props);
 </template>
 
 <style lang="scss" scoped>
-$border-radius: 0.25em;
-
 .informations {
   color: $grey;
   background-color: $card-infos-background;
-  border-bottom-left-radius: $border-radius;
-  border-bottom-right-radius: $border-radius;
+  border-bottom-left-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
   padding: 0.93rem;
 }
 
@@ -68,5 +73,9 @@ $border-radius: 0.25em;
 
 .informations__updated {
   font-size: 0.6em;
+
+  time {
+    text-transform: uppercase;
+  }
 }
 </style>

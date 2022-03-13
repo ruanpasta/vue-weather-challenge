@@ -19,7 +19,7 @@ const props = defineProps({
     type: Array,
   },
   lastUpdate: {
-    type: Date,
+    type: String,
   },
   loading: {
     type: Boolean,
@@ -80,7 +80,6 @@ button {
   }
 
   &:active {
-    /* background-color: $grey; */
     filter: brightness(0.9);
   }
 }

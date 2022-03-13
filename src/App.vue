@@ -2,6 +2,7 @@
 import NavBar from "@/components/NavBar.vue";
 import WeatherCard from "@/components/WeatherCard/WeatherCard.vue";
 import { computed } from "@vue/runtime-core";
+import moment from "moment";
 
 // const getTemperatureColor = (value) => {
 //   if (value <= 5) return "cold";
@@ -14,8 +15,19 @@ const statesComputed = computed(() => [
     title: "Urubici, BR",
     temperature: 33,
     temperatureColor: "hot",
-    lastUpdate: "new Date()",
-    informations: "[]",
+    lastUpdate: moment().format("h:mm:ss a"),
+    informations: [
+      {
+        description: "Humidity",
+        value: "75%",
+        valueType: "",
+      },
+      {
+        description: "Presure",
+        value: "892",
+        valueType: "hPa",
+      },
+    ],
   },
   {
     title: "Urubici, BR",
@@ -27,16 +39,16 @@ const statesComputed = computed(() => [
     temperature: 4,
     temperatureColor: "cold",
     lastUpdate: "new Date()",
-    informations: "[]",
+    informations: [],
     errorMessage: "Failed to get data",
   },
 ]);
 
-const get = () => {
+const getData = () => {
   console.log("Buscar valores:");
 };
 
-defineExpose(statesComputed);
+defineExpose({ statesComputed, getData });
 </script>
 
 <template>
@@ -44,21 +56,19 @@ defineExpose(statesComputed);
   <main>
     <div class="wheater-cards">
       <template v-for="(state, index) in statesComputed" :key="index">
-        <component :is="WeatherCard" v-bind="state" @onGetData="get" />
+        <component :is="WeatherCard" v-bind="state" @onGetData="getData" />
       </template>
     </div>
   </main>
 </template>
 
 <style lang="scss">
-$height: 100%;
-
 main {
-  height: $height;
+  @include fullHeight;
 }
 
 .wheater-cards {
-  height: $height;
+  @include fullHeight;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
