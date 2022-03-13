@@ -7,7 +7,7 @@ import ImageLogo from "@/components/images/imageLogo.vue";
     <ul class="nav">
       <li class="nav__item">
         <figure>
-          <ImageLogo width="176px" height="26px" />
+          <ImageLogo width="11rem" height="1.62rem" />
         </figure>
       </li>
     </ul>
@@ -17,17 +17,17 @@ import ImageLogo from "@/components/images/imageLogo.vue";
 <style lang="scss" scoped>
 .nav {
   background-color: $white;
-  margin: 0;
+  padding: 0.8rem;
 
   display: flex;
   flex-direction: row;
   justify-content: center;
-  box-shadow: 0px 0px 2px $grey;
+  box-shadow: 0 0 0.18rem $grey;
 }
 
 .nav__item {
   list-style-type: none;
-  margin: 0 10px 0 10px;
+  margin: 0 0.9rem 0 0.9rem;
   display: inline-block;
 }
 </style>
