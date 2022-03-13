@@ -2,6 +2,8 @@ import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 import WeatherCard from "@/components/WeatherCard/WeatherCard.vue";
 import classModifier from "@/directives/classModifier.js";
+import IconLoader from "@/components/icons/iconLoader.vue";
+import WeatherInformations from "@/components/WeatherCard/WeatherInformations.vue";
 
 const global = {
   directives: {
@@ -37,7 +39,17 @@ describe("WeatherCard", () => {
       global,
     });
 
-    expect(wrapper.find("svg").exists()).toBe(true);
+    const icon = wrapper.getComponent(IconLoader);
+
+    expect(icon.exists()).toBe(true);
+  });
+
+  it("deve renderizar o componente weather informations", () => {
+    const wrapper = mount(WeatherCard, { props: mockedProps, global });
+
+    const weather = wrapper.getComponent(WeatherInformations);
+
+    expect(weather.exists()).toBe(true);
   });
 
   it("deve renderizar a mensagem de erro", () => {

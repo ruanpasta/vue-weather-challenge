@@ -1,37 +1,13 @@
 <script setup>
 import WeatherInformations from "@/components/WeatherCard/WeatherInformations.vue";
 import IconLoader from "@/components/icons/iconLoader.vue";
+import weatherCardProps from "@/components/WeatherCard/weatherCard.js";
 
-const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  temperature: {
-    type: Number,
-    required: true,
-  },
-  temperatureColor: {
-    type: String,
-    default: "",
-  },
-  informations: {
-    type: Array,
-  },
-  lastUpdate: {
-    type: String,
-  },
-  loading: {
-    type: Boolean,
-  },
-  errorMessage: {
-    type: String,
-  },
-});
+const props = defineProps(weatherCardProps);
 
 defineEmits(["onGetData"]);
 
-defineExpose(props);
+defineExpose({ props, IconLoader, WeatherInformations });
 </script>
 
 <template>

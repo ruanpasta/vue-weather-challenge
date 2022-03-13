@@ -1,11 +1,7 @@
 <script setup>
 const props = defineProps({
-  informations: {
-    type: Array,
-  },
-  lastUpdate: {
-    type: String,
-  },
+  informations: { type: Array },
+  lastUpdate: { type: String },
 });
 
 defineExpose(props);
