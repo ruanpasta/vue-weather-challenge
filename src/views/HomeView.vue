@@ -28,8 +28,7 @@ const getData = async (city) => {
     {};
   element.loading = true;
 
-  // const tenMinutes = 610 * 1000;
-  const tenMinutes = 20 * 1000;
+  const tenMinutes = 610 * 1000;
 
   try {
     const { data } = await service.getWeatherByCityName(city);
