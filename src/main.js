@@ -3,11 +3,11 @@ import { createStore } from "vuex"
 import App from "@/App.vue";
 import router from "@/router";
 import injectDirectives from "./directives";
-// import globalStore from "@/store";
+import globalStore from "@/store";
 
 const app = createApp(App);
 
-const store = createStore({});
+const store = createStore(globalStore);
 
 injectDirectives(app);
 
