@@ -4,11 +4,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "test": "vitest --environment jsdom --coverage"
+    "test": "vitest --environment jsdom --coverage",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "axios": "^0.26.1",
     "moment": "^2.29.1",
-    "vue": "^3.2.31"
+    "vue": "^3.2.31",
+    "vue-router": "^4.0.14",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",

@@ -10,3 +10,7 @@
 - Criado componente WeatherCard e WeatherInformation
 - Criado a diretiva classModifier.
 - Realizado os testes unitários dos componentes Weather
+- Configurado a conexão com a API Open Weather
+- Ajustado layout e disposição dos componentes App, Home e Navbar
+- Realizado melhorias gerais na estilização e nos componentes Weather
+- Realizado o Cache da aplicação via localStorage

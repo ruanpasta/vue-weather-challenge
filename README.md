@@ -23,7 +23,8 @@ Este projeto tem como intuido atender ao desafio Weater now, onde será criado u
 - [✔️] Gerar e configurar projeto
 - [✔️] Criar componente Navbar
 - [✔️] Criar componente WeatherCard
-- [] Configurar conexão com a API https://openweathermap.org
+- [✔️] Configurar conexão com a API https://openweathermap.org
+- [] Utilizar Vuex e salvar as informações do tempo na Store
 
 
 <h4 align="center"> 

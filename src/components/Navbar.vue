@@ -18,8 +18,12 @@ defineExpose({ ImageLogo });
 
 <style lang="scss" scoped>
 .nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
   background-color: $white;
-  padding: 0.8rem;
+  padding: $sm-size;
 
   display: flex;
   flex-direction: row;
@@ -29,7 +33,7 @@ defineExpose({ ImageLogo });
 
 .nav__item {
   list-style-type: none;
-  margin: 0 0.9rem 0 0.9rem;
+  margin: 0 $sm-size 0 $sm-size;
   display: inline-block;
 }
 </style>
