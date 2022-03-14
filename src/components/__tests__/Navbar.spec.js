@@ -4,7 +4,6 @@ import { mount } from "@vue/test-utils";
 import Navbar from "@/components/Navbar.vue";
 import ImageLogo from "@/components/images/imageLogo.vue";
 
-
 describe("Navbar", () => {
   it("deve renderizar o componente", () => {
     const wrapper = mount(Navbar);

@@ -1,10 +1,12 @@
 <script setup>
+import moment from "moment";
+
 const props = defineProps({
   informations: { type: Array },
-  lastUpdate: { type: String },
+  lastUpdate: { type: Date },
 });
 
-defineExpose(props);
+defineExpose({ props, moment });
 </script>
 
 <template>
@@ -22,17 +24,15 @@ defineExpose(props);
           {{ info.description }}
         </div>
         <div class="informations__items__item__value">
-          {{ info.value }}
-          <span
-            class="informations__items__item__value__type"
-            v-if="info.valueType"
+          {{ info.value
+          }}<span class="informations__items__item__value__type"
             >{{ info.valueType }}
           </span>
         </div>
       </div>
     </div>
     <div v-if="lastUpdate" class="informations__updated">
-      Updated at <time>{{ lastUpdate }}</time>
+      Updated at <time>{{ moment(lastUpdate).format("h:mm:ss a") }}</time>
     </div>
   </div>
 </template>
@@ -43,19 +43,19 @@ defineExpose(props);
   background-color: $card-infos-background;
   border-bottom-left-radius: 0.25em;
   border-bottom-right-radius: 0.25em;
-  padding: 0.93rem;
+  padding: $sm-size;
 }
 
 .informations__items {
   display: flex;
   justify-content: space-around;
-  padding-bottom: 0.62rem;
+  padding-bottom: $xxs-size;
 }
 
 .informations__items__item__description {
   padding-bottom: 0.31rem;
   text-transform: uppercase;
-  font-size: 0.7em;
+  font-size: $xs-size;
 }
 
 .informations__items__item__value {
@@ -64,11 +64,11 @@ defineExpose(props);
 }
 
 .informations__items__item__value__type {
-  font-size: 0.8em;
+  font-size: $sm-size;
 }
 
 .informations__updated {
-  font-size: 0.6em;
+  font-size: $xxs-size;
 
   time {
     text-transform: uppercase;

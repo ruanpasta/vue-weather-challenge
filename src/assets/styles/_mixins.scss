@@ -1,6 +1,6 @@
 @mixin card__temperature() {
   font-size: 5em;
-  padding: 1.25rem 0 1.25rem 0;
+  padding: $lg-size 0 $lg-size 0;
 }
 
 @mixin fullHeight() {
