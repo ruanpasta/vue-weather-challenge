@@ -67,7 +67,7 @@ describe("WeatherInformations", () => {
 
   it("deve renderizar a informacao de ultima atualizacao", () => {
     const wrapper = mount(WeatherInformations, {
-      props: { informations: [], lastUpdate: new Date().toString() },
+      props: { informations: [], lastUpdate: new Date() },
     });
 
     expect(wrapper.html()).toContain('class="informations__updated"');

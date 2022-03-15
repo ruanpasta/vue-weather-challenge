@@ -2,12 +2,21 @@
 import WeatherInformations from "@/components/WeatherCard/WeatherInformations.vue";
 import IconLoader from "@/components/icons/iconLoader.vue";
 import { weatherCardProps } from "@/components/WeatherCard/weather.js";
+import { computed } from "@vue/runtime-core";
+
+const getTemperatureColor = (value) => {
+  if (value <= 5) return "cold";
+  if (value > 25) return "hot";
+  return "neutral";
+};
 
 const props = defineProps(weatherCardProps);
 
+const color = computed(() => getTemperatureColor(props.temperature));
+
 defineEmits(["onGetData"]);
 
-defineExpose({ props, IconLoader, WeatherInformations });
+defineExpose({ props, IconLoader, WeatherInformations, color });
 </script>
 
 <template>
@@ -25,7 +34,7 @@ defineExpose({ props, IconLoader, WeatherInformations });
       </div>
     </div>
     <template v-else>
-      <div class="card__temperature" v-class-modifier="temperatureColor">
+      <div class="card__temperature" :class="color">
         <div>{{ temperature }}°</div>
       </div>
       <WeatherInformations
@@ -94,18 +103,16 @@ button {
 
 .card__temperature {
   @include card__temperature;
-}
 
-.card__temperature--cold {
-  @include card__temperature;
-  color: $blue;
-}
-.card__temperature--neutral {
-  @include card__temperature;
-  color: $orange;
-}
-.card__temperature--hot {
-  @include card__temperature;
-  color: $red;
+  &.cold {
+    color: $blue;
+  }
+
+  &.neutral {
+    color: $orange;
+  }
+  &.hot {
+    color: $red;
+  }
 }
 </style>
