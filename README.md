@@ -28,5 +28,5 @@ Este projeto tem como intuido atender ao desafio Weater now, onde será criado u
 
 
 <h4 align="center"> 
-	🚀 Projeto Liberado 🚀
+	🚀 Projeto Liberado v1.0.0 🚀
 </h4>

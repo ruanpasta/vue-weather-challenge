@@ -1,4 +1,4 @@
-# Version { version }
+# Version 1.0.0
 
 ### Novas funcionalidades
 - Criado o componente Navbar e configurado componente imageLogo
