@@ -1,41 +1,32 @@
-# challenge-weather-now
+# Challenge Weather now
 
-This template should help get you started developing with Vue 3 in Vite.
+Este projeto tem como intuido atender ao desafio Weater now, onde será criado uma página para apresentar informações climáticas de algumas específicas cidades.
+ 
+ ----------------------------------------------------------------
+## Rodando projeto
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
+#### Utilize um dos comandos abaixo para instalar as dependências do projeto:
 ```sh
-npm install
+`yarn install` ou `npm install`
+```
+#### Compile o projeto com recarregamento rápido com o comando:
+```sh
+`yarn dev` ou `npm run dev`
+```
+#### Realize os testes unitários com:
+```sh
+`yarn test` ou `npm run test`
 ```
 
-### Compile and Hot-Reload for Development
+## Features
 
-```sh
-npm run dev
-```
+- [✔️] Gerar e configurar projeto
+- [✔️] Criar componente Navbar
+- [✔️] Criar componente WeatherCard
+- [✔️] Configurar conexão com a API https://openweathermap.org
+- [✔️] Utilizar Vuex e salvar as informações do tempo na Store
 
-### Compile and Minify for Production
 
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+<h4 align="center"> 
+	🚀 Projeto Liberado v1.0.0 🚀
+</h4>
