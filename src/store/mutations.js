@@ -3,19 +3,14 @@ const mutations = {
     state.weathers = weathers;
   },
   SET_WEATHER(state, { weather }) {
-    state.weathers = state.weathers.map((element) =>
-      element.name === weather.name ? weather : element
-    );
+    const index = state.weathers.findIndex((res) => res.name === weather.name);
+    if (index === -1) return state.weathers.push(weather);
+    state.weathers.splice(index, 1, weather);
   },
-  SET_LOADING_WEATHER(state, { cityName, loading }) {
-    state.weathers = state.weathers.map((element) => {
-      if (element.name === cityName) {
-        element.loading = loading;
-        return element;
-      }
-      return element;
-    })
-  }
-}
+  UPDATE_WEATHER_LOADING(state, { cityName, loading }) {
+    const weather = state.weathers.find((res) => res.name === cityName);
+    if (weather) weather.loading = loading;
+  },
+};
 
 export default mutations;

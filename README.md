@@ -24,9 +24,9 @@ Este projeto tem como intuido atender ao desafio Weater now, onde será criado u
 - [✔️] Criar componente Navbar
 - [✔️] Criar componente WeatherCard
 - [✔️] Configurar conexão com a API https://openweathermap.org
-- [] Utilizar Vuex e salvar as informações do tempo na Store
+- [✔️] Utilizar Vuex e salvar as informações do tempo na Store
 
 
 <h4 align="center"> 
-	🚧  Projeto em construção 🚀  🚧
+	🚀 Projeto Liberado 🚀
 </h4>

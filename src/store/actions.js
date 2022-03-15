@@ -3,22 +3,12 @@ import { WeatherService } from "@/services";
 
 const service = new WeatherService();
 
-const getTemperatureColor = (value) => {
-  if (value <= 5) return "cold";
-  if (value > 25) return "hot";
-  return "neutral";
-};
-
-const mountedWeather = (data) => {
+const mountedWeather = (data, cityName) => {
   const temperature = Number(data.main.temp.toFixed(0));
 
   const getInfos = (value, name, unit) =>
     value
-      ? {
-        description: name,
-        value: `${value}`,
-        valueType: unit || null,
-      }
+      ? { description: name, value: `${value}`, valueType: unit || null }
       : null;
 
   const humidity = getInfos(data.main.humidity, "Humidity", "%");
@@ -30,10 +20,9 @@ const mountedWeather = (data) => {
   if (pressure) informations.push(pressure);
 
   return new Weather({
-    name: data.name,
+    name: cityName,
     title: `${data.name}, ${data.sys.country}`,
     temperature,
-    temperatureColor: getTemperatureColor(temperature),
     informations,
     lastUpdate: new Date(),
     loading: false,
@@ -41,66 +30,73 @@ const mountedWeather = (data) => {
   });
 };
 
-const getWeatherData = async ({ commit, state }, cityName) => {
-  // const tenMinutes = 610 * 1000;
-  const tenMinutes = 20 * 1000;
-  commit("SET_LOADING_WEATHER", cityName, true);
-
-  try {
-    const { data } = await service.getWeatherByCityName(cityName);
-    commit("SET_LOADING_WEATHER", cityName, false);
-    setTimeout(() => getWeatherData({ commit, state }, cityName), tenMinutes);
-    return mountedWeather(data);
-  } catch (err) {
-    commit("SET_LOADING_WEATHER", cityName, false);
-    return new Weather({
-      name: cityName,
-      title: cityName,
-      temperature: 0,
-      lastUpdate: new Date(),
-      errorMessage: err.toString(),
-    });
-  }
-};
-
-const canUpdate = (weather) => {
-  if (weather.lastUpdate) {
-    const currentDate = new Date(Date.parse(weather.lastUpdate));
+const canUpdate = (lastUpdate) => {
+  if (lastUpdate) {
+    const currentDate = new Date(Date.parse(lastUpdate));
     const differenceSeconds =
       (new Date().getTime() - currentDate.getTime()) / 1000;
-    return Math.abs(differenceSeconds) > 600;
+    const tenMinutesInSeconds = 600;
+    return Math.abs(differenceSeconds) <= tenMinutesInSeconds;
   }
   return false;
 };
 
-const getWeathersFromWeatherState = ({ commit, state }) => {
-  state.forEach((weather) => {
-    if (canUpdate(weather)) return actions.getWeather(weather.name);
-    if (weather.lastUpdate && typeof weather.lastUpdate === "string")
-      weather.lastUpdate = new Date(Date.parse(weather.lastUpdate));
-    return commit("SET_WEATHER", weather);
-  });
-};
-
-const getWeathersFromApiOrState = async ({ commit, state }) => {
-  if (state && state.length) getWeathersFromWeatherState({ commit, state });
-  else {
-    await actions.getWeather("nuuk");
-    await actions.getWeather("urubici");
-    await actions.getWeather("nairobi");
-  }
+const getWeathersFromApiOrState = async ({ dispatch }) => {
+  await dispatch("getWeather", { cityName: "nuuk" });
+  await dispatch("getWeather", { cityName: "urubici" });
+  await dispatch("getWeather", { cityName: "nairobi" });
 };
 
 const actions = {
-  getWeather({ commit, state }, cityName) {
-    return new Promise((resolve) => {
-      const data = getWeatherData({ commit, state }, cityName);
-      resolve(commit("SET_WEATHER", data));
-    });
+  async getWeather(
+    { commit, dispatch, getters },
+    { cityName, isCheckDataInState }
+  ) {
+    commit("UPDATE_WEATHER_LOADING", { cityName, loading: true });
+
+    const tenMinutes = 610 * 1000;
+
+    const setTimer = () =>
+      setTimeout(
+        () =>
+          dispatch("getWeather", {
+            cityName,
+            isCheckDataInState: true,
+          }),
+        tenMinutes
+      );
+
+    const lastUpdated = getters.getLastUpdatedFromCity(cityName);
+    if (isCheckDataInState && canUpdate(lastUpdated)) {
+      commit("UPDATE_WEATHER_LOADING", { cityName, loading: false });
+      return setTimer();
+    }
+
+    await service
+      .getWeatherByCityName(cityName)
+      .then((response) => {
+        setTimer();
+        const weather = mountedWeather(response.data, cityName);
+        commit("SET_WEATHER", { weather });
+      })
+      .catch((err) => {
+        const weather = new Weather({
+          name: cityName,
+          title: cityName,
+          temperature: 0,
+          lastUpdate: new Date(),
+          loading: false,
+          errorMessage: err.toString(),
+        });
+        commit("SET_WEATHER", { weather });
+      })
+      .finally(() =>
+        commit("UPDATE_WEATHER_LOADING", { cityName, loading: false })
+      );
   },
-  getWeathers({ commit, state }) {
-    return new Promise.resolve(getWeathersFromApiOrState({ commit, state }));
-  }
+  async getWeathers({ dispatch }) {
+    await getWeathersFromApiOrState({ dispatch });
+  },
 };
 
 export default actions;
