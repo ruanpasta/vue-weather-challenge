@@ -1,6 +1,6 @@
-import getters from "@/store/getters.js";
+import getters from "../../store/getters.js";
 import { describe, expect, it } from "vitest";
-import { Weather } from "@/components/WeatherCard";
+import { Weather } from "../../components/WeatherCard";
 
 const { getWeathersState, getWeatherFromCity, getLastUpdatedFromCity } =
   getters;

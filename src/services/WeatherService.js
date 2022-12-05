@@ -1,4 +1,4 @@
-import http from "@/http";
+import http from "../http";
 
 export default class WeatherService {
   getWeatherByCityName(cityName, unit = "metric", lang = "pt_br") {

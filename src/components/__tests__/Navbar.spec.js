@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 
 import { mount } from "@vue/test-utils";
-import Navbar from "@/components/Navbar.vue";
-import ImageLogo from "@/components/images/imageLogo.vue";
+import Navbar from "../../components/Navbar.vue";
+import ImageLogo from "../../components/images/imageLogo.vue";
 
 describe("Navbar", () => {
   it("deve renderizar o componente", () => {

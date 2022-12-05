@@ -1,8 +1,8 @@
 import { createApp } from "vue";
 import { createStore } from "vuex";
-import App from "@/App.vue";
-import router from "@/router";
-import globalStore from "@/store";
+import App from "./App.vue";
+import router from "./router";
+import globalStore from "./store";
 
 const app = createApp(App);
 

@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import imageLogo from "@/components/images/imageLogo.vue";
+import imageLogo from "../../components/images/imageLogo.vue";
 
 describe("imageLogo", () => {
   it("deve renderizar a imagemlogo", () => {

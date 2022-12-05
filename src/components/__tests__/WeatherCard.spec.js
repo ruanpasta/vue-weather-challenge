@@ -1,8 +1,8 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
-import WeatherCard from "@/components/WeatherCard/WeatherCard.vue";
-import IconLoader from "@/components/icons/iconLoader.vue";
-import WeatherInformations from "@/components/WeatherCard/WeatherInformations.vue";
+import WeatherCard from "../../components/WeatherCard/WeatherCard.vue";
+import IconLoader from "../../components/icons/iconLoader.vue";
+import WeatherInformations from "../../components/WeatherCard/WeatherInformations.vue";
 
 const mockedProps = {
   name: "city",

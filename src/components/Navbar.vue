@@ -1,5 +1,5 @@
 <script setup>
-import ImageLogo from "@/components/images/imageLogo.vue";
+import ImageLogo from "../components/images/imageLogo.vue";
 
 defineExpose({ ImageLogo });
 </script>
