@@ -1,7 +1,7 @@
 <script setup>
-import WeatherInformations from "../../components/WeatherCard/WeatherInformations.vue";
-import IconLoader from "../../components/icons/iconLoader.vue";
-import { weatherCardProps } from "../../components/WeatherCard/weather.js";
+import WeatherInformations from "@/components/WeatherCard/WeatherInformations.vue";
+import IconLoader from "@/components/icons/iconLoader.vue";
+import { weatherCardProps } from "@/components/WeatherCard/weather.js";
 import { computed } from "@vue/runtime-core";
 
 const getTemperatureColor = (value) => {

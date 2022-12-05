@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { WeatherCard } from "../components/WeatherCard";
+import { WeatherCard } from "@/components/WeatherCard";
 import { computed, onBeforeMount } from "@vue/runtime-core";
 import { useStore } from "vuex";
 

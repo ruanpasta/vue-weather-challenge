@@ -1,5 +1,5 @@
-import { Weather } from "../components/WeatherCard";
-import { WeatherService } from "../services";
+import { Weather } from "@/components/WeatherCard";
+import { WeatherService } from "@/services";
 
 const service = new WeatherService();
 

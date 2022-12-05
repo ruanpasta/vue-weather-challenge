@@ -1,5 +1,5 @@
-import WeatherInformations from "../../components/WeatherCard/WeatherInformations.vue";
-import WeatherCard from "../../components/WeatherCard/WeatherCard.vue";
-import Weather from "../../components/WeatherCard/Weather.js";
+import WeatherInformations from "./WeatherInformations.vue";
+import WeatherCard from "./WeatherCard.vue";
+import Weather from "./weather.js";
 
 export { WeatherCard, Weather, WeatherInformations };

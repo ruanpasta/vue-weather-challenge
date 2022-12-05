@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
-import WeatherInformations from "../../components/WeatherCard/WeatherInformations.vue";
+import WeatherInformations from "@/components/WeatherCard/WeatherInformations.vue";
 
 const mockedInformations = [
   {

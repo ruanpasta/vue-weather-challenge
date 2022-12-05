@@ -1,7 +1,7 @@
 // mutations.spec.js
 import { describe, expect, it } from "vitest";
-import mutations from "../../store/mutations.js";
-import { Weather } from "../../components/WeatherCard";
+import mutations from "@/store/mutations.js";
+import { Weather } from "@/components/WeatherCard";
 
 // destructure assign `mutations`
 const {
