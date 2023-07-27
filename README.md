@@ -1,8 +1,20 @@
-# Challenge Weather now
+# Vue Weather Challenge
 
-Este projeto tem como intuido atender ao desafio Weater now, onde será criado uma página para apresentar informações climáticas de algumas específicas cidades.
+Bem-vindo(a) ao Vue Weather Challenge.\
+Este projeto teve como objetivo atender a um desafio, onde foi criado uma página para apresentar informações climáticas de algumas específicas cidades.
+
+As principais technologias utilizadas nesse projeto foram:\
+<img src="https://img.shields.io/badge/Vue.js-35495E?logo=vue.js&logoColor=4FC08D"/>
+<img src="https://img.shields.io/badge/Vuex-469c35"/>
+<img src="https://img.shields.io/badge/Vitest-4e914e?logo=vitest&logoColor=ded231"/>
+<img src="https://img.shields.io/badge/Sass-edc5e1?logo=sass&logoColor=b04d91"/>
+<img src="https://img.shields.io/badge/Axios-d3c7fc?logo=axios&logoColor=6e48f7"/>
+
+**Acesse o porjeto em producao:**\
+https://vue-weather-challenge.ruanpasta.com/
+
+[Vue](https://vuejs.org/) version 3.2.45.
  
- ----------------------------------------------------------------
 ## Rodando projeto
 
 #### Utilize um dos comandos abaixo para instalar as dependências do projeto:
